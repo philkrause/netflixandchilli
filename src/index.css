@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gothic+A1&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alice|Amatic+SC|Gothic+A1&display=swap');
 :root {
   font: 16px / 1 sans-serif;
 }
@@ -10,31 +10,60 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  /* display: flex;
+  justify-content: center; */
+  background-color: black;
 }
 
+.head-er {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  width: 100vw;
+  padding-bottom: 6rem;
+}
+.head-er h1 {
+  font-family: 'Alice', serif;
+  font-size: 3rem;
+  color: white;
+}
 .movie-cont {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  flex-wrap: wrap;
+
   align-items: center;
 }
 /* font-family: 'Amatic SC', cursive; */
-
-.movie-cont a {
-  /* font-family: 'Gothic A1', sans-serif; */
-  text-decoration: none;
-  font-family: 'Amatic SC', cursive;
-  font-size: 2rem;
+.body-cont {
+  display: flex;
+  padding-bottom: 5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.movie-cont img {
+  height: 20rem;
+  width: auto;
+}
+.movie-cont h1 {
+  font-family: 'Alice', serif;
+  font-size: 0.9rem;
   padding: 0;
   margin: 0;
-  border: outset white 3px;
+  border: outset white 2px;
+  color: white;
+}
+.movie-cont a {
+  text-decoration: none;
 }
 
 .movie-cont h2 {
-  font-family: 'Gothic A1', sans-serif;
+  /* font-family: 'Gothic A1', sans-serif; */
   font-family: 'Amatic SC', cursive;
-  font-size: 3rem;
+  font-size: 2rem;
   padding: 0;
   margin: 0.5rem;
-  border: outset white 2px;
+  color: rgb(255, 153, 0);
 }

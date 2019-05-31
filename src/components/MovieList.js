@@ -22,9 +22,9 @@ class MovieList extends Component {
       .then(data => {
         console.log({ data })
         this.setState({
-          movies: data.results,
-          title: data.results[0].title,
-          vote_average: data.results[0].vote_average
+          movies: data.results
+          // title: data.results[0].title
+          // vote_average: data.results[0].vote_average
         })
       })
   }
@@ -34,12 +34,20 @@ class MovieList extends Component {
       <>
         <section className="movie-cont">
           {this.state.movies.map(mov => {
+            {
+              console.log(mov.poster_path)
+            }
             return (
               <>
-                <a href="#">
-                  <h1>{mov.title}</h1>
-                </a>
-                <h2>{mov.vote_average}</h2>
+                <div className="body-cont">
+                  {/* <h1>{mov.title}</h1> */}
+                  <a href="#">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                    />
+                  </a>
+                  <h2>Rating:{mov.vote_average}</h2>
+                </div>
               </>
             )
           })}
