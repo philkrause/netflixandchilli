@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import MovieItem from '../components/MovieItem'
+import MoviePageItem from '../components/MovieItem'
 
 class MoviePage extends Component {
   render() {
-    return <MovieItem />
+    return <MoviePageItem />
   }
 }
 
