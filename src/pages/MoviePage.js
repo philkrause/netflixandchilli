@@ -3,7 +3,7 @@ import MovieList from './MovieList'
 
 class MoviePage extends Component {
   render() {
-    return <MovieList />
+    return <h1> This is the single movie page</h1>
   }
 }
 

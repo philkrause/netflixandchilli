@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import MovieItem from '../components/MovieItem'
 
 class MovieList extends Component {
@@ -30,7 +29,6 @@ class MovieList extends Component {
         })
       })
   }
-
   render() {
     return (
       <>
@@ -39,14 +37,12 @@ class MovieList extends Component {
             {
             }
             return (
-              <Link to={`/movie/${this.props.movie.id}`}>
-                <MovieItem
-                  key={index}
-                  movie={mov}
-                  id={mov.id}
-                  rating={mov.vote_average}
-                />
-              </Link>
+              <MovieItem
+                key={index}
+                movie={mov}
+                id={mov.id}
+                rating={mov.vote_average}
+              />
             )
           })}
         </section>
