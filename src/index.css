@@ -30,7 +30,7 @@ body {
 .movie-cont {
   display: flex;
   /* flex-direction: column; */
-  /* justify-content: center; */
+  justify-content: center;
   flex-wrap: wrap;
 
   align-items: center;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import MovieItem from './MovieItem'
 
 class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
@@ -33,23 +34,11 @@ class MovieList extends Component {
     return (
       <>
         <section className="movie-cont">
-          {this.state.movies.map(mov => {
+          {this.state.movies.map((mov, index) => {
             {
               console.log(mov.poster_path)
             }
-            return (
-              <>
-                <div className="body-cont">
-                  {/* <h1>{mov.title}</h1> */}
-                  <a href="#">
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                    />
-                  </a>
-                  <h2>Rating:{mov.vote_average}</h2>
-                </div>
-              </>
-            )
+            return <MovieItem key={index} movie={mov} />
           })}
         </section>
       </>
