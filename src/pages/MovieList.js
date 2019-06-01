@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import MovieItem from './MovieItem'
+import { Link } from 'react-router-dom'
+import MovieItem from '../components/MovieItem'
 
 class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
@@ -21,7 +22,7 @@ class MovieList extends Component {
         return resp.json()
       })
       .then(data => {
-        console.log({ data })
+        //console.log({ data })
         this.setState({
           movies: data.results
           // title: data.results[0].title
@@ -38,12 +39,14 @@ class MovieList extends Component {
             {
             }
             return (
-              <MovieItem
-                key={index}
-                movie={mov}
-                id={mov.id}
-                rating={mov.vote_average}
-              />
+              <Link to={`/movie/${this.props.movie.id}`}>
+                <MovieItem
+                  key={index}
+                  movie={mov}
+                  id={mov.id}
+                  rating={mov.vote_average}
+                />
+              </Link>
             )
           })}
         </section>
