@@ -36,9 +36,15 @@ class MovieList extends Component {
         <section className="movie-cont">
           {this.state.movies.map((mov, index) => {
             {
-              console.log(mov.poster_path)
             }
-            return <MovieItem key={index} movie={mov} />
+            return (
+              <MovieItem
+                key={index}
+                movie={mov}
+                id={mov.id}
+                rating={mov.vote_average}
+              />
+            )
           })}
         </section>
       </>
