@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { BrowserRouter } from 'react-router-dom'
+import Header from '../components/Header'
 
 class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
@@ -36,6 +36,7 @@ class MovieList extends Component {
     // console.log(this.props.params.id)
     return (
       <>
+        <Header />
         <section className="movie-cont">
           {this.state.movies.map((mov, index) => {
             return (
