@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import MovieItem from '../components/MovieItem'
+// import MovieItem from '../components/MovieItem'
+import { Link } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
 
   state = {
     movies: [],
-    title: '',
-    vote_average: ''
+    // title: '',
+    // vote_average: ''
   }
 
   componentDidMount() {
@@ -21,10 +23,10 @@ class MovieList extends Component {
         return resp.json()
       })
       .then(data => {
-        //console.log({ data })
+        console.log({ data })
         this.setState({
           movies: data.results,
-          movieId: data.results.id
+          // movieId: data.results.id
           // title: data.results[0].title
           // vote_average: data.results[0].vote_average
         })
@@ -36,15 +38,21 @@ class MovieList extends Component {
       <>
         <section className="movie-cont">
           {this.state.movies.map((mov, index) => {
-            {
-            }
             return (
-              <MovieItem
-                key={index}
-                movie={mov}
-                id={mov.id}
-                rating={mov.vote_average}
-              />
+              <>
+                <div className="body-cont">
+                  <>
+                    <BrowserRouter>
+                      <Link to={`/movie/${mov.id}`}>
+                        <img
+                          src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                        />
+                      </Link>
+                    </BrowserRouter>
+                  </>
+                  <h2>Rating:{mov.vote_average}</h2>
+                </div>
+              </>
             )
           })}
         </section>
