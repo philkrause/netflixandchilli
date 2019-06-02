@@ -7,12 +7,12 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header />
-        <MovieList />
         <Router>
+          <Header />
+          <MovieList />
           <Switch>
-            <Route exact path="/" component={MovieList} />
-            <Route exact path="/movie/:id" component={MovieItem} />
+            <Route path="/" exact component={MovieList} />
+            <Route path="/movie/page/:id" exact component={MovieItem} />
           </Switch>
         </Router>
       </>

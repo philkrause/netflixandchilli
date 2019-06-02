@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import MovieItem from '../components/MovieItem'
 import { Link } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -25,7 +24,7 @@ class MovieList extends Component {
       .then(data => {
         console.log({ data })
         this.setState({
-          movies: data.results,
+          movies: data.results
           // movieId: data.results.id
           // title: data.results[0].title
           // vote_average: data.results[0].vote_average
@@ -34,6 +33,7 @@ class MovieList extends Component {
   }
 
   render() {
+    // console.log(this.props.params.id)
     return (
       <>
         <section className="movie-cont">
@@ -42,13 +42,13 @@ class MovieList extends Component {
               <>
                 <div className="body-cont">
                   <>
-                    <BrowserRouter>
-                      <Link to={`/movie/${mov.id}`}>
-                        <img
-                          src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                        />
-                      </Link>
-                    </BrowserRouter>
+
+                    <Link to={`/movie/page/${mov.id}`}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                      />
+                    </Link>
+
                   </>
                   <h2>Rating:{mov.vote_average}</h2>
                 </div>
