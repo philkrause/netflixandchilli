@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 class MovieItem extends Component {
   render() {
+    console.log(this.props.id)
     return (
       <>
-        <section className="movie-cont">
-          <div className="body-cont">
+        <div className="body-cont">
+          <Link to={`/movie/page/${this.props.id}`} >
             <img
-              src={`https://image.tmdb.org/t/p/w500/${this.state.movies.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500/${this.props.movies.poster_path}`}
             />
-            <h2>Rating:{this.state.movies.vote_average}</h2>
-          </div>
-        </section>
+          </Link>
+          <h2>Rating:{this.props.movies.vote_average}</h2>
+        </div>
       </>
     )
   }

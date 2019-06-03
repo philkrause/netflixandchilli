@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Header from '../components/Header'
+import MovieItem from '../components/MovieItem'
 
 class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
@@ -22,7 +22,7 @@ class MovieList extends Component {
         return resp.json()
       })
       .then(data => {
-        console.log({ data })
+        // console.log({ data })
         this.setState({
           movies: data.results
           // movieId: data.results.id
@@ -36,24 +36,17 @@ class MovieList extends Component {
     // console.log(this.props.params.id)
     return (
       <>
-        <Header />
+        <Header
+          movies={this.state.movies}
+        />
         <section className="movie-cont">
           {this.state.movies.map((mov, index) => {
             return (
-              <>
-                <div className="body-cont">
-                  <>
-
-                    <Link to={`/movie/page/${mov.id}`}>
-                      <img
-                        src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                      />
-                    </Link>
-
-                  </>
-                  <h2>Rating:{mov.vote_average}</h2>
-                </div>
-              </>
+              <MovieItem
+                id={mov.id}
+                key={index}
+                movies={mov}
+              />
             )
           })}
         </section>
