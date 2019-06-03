@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 class MovieItem extends Component {
+  state = {
+    allMovies: this.props.movies
+  }
   render() {
-    console.log(this.props.id)
     return (
       <>
         <div className="body-cont">
-          <Link to={`/movie/page/${this.props.id}`} >
+          <Link to={{
+            pathname: `/movie/page/${this.props.id}`,
+            state: {
+              allMovies: this.state.allMovies
+            }
+          }} >
             <img
               src={`https://image.tmdb.org/t/p/w500/${this.props.movies.poster_path}`}
             />

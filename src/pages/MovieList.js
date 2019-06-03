@@ -6,7 +6,7 @@ class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
 
   state = {
-    movies: [],
+    movies: []
     // title: '',
     // vote_average: ''
   }
@@ -29,17 +29,21 @@ class MovieList extends Component {
           // title: data.results[0].title
           // vote_average: data.results[0].vote_average
         })
+
       })
   }
 
   render() {
-    // console.log(this.props.params.id)
+    // console.log('a', this.props)
     return (
       <>
+        {/* {console.log(this)} */}
+
         <Header
           movies={this.state.movies}
         />
         <section className="movie-cont">
+
           {this.state.movies.map((mov, index) => {
             return (
               <MovieItem

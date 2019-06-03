@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MovieList from './pages/MovieList'
+import MovieItem from './components/MovieItem'
 import MoviePage from './pages/MoviePage'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 class App extends Component {
