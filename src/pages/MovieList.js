@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from '../components/Header'
 import MovieItem from '../components/MovieItem'
 
 class MovieList extends Component {
@@ -6,8 +7,8 @@ class MovieList extends Component {
 
   state = {
     movies: [],
-    title: '',
-    vote_average: ''
+    // title: '',
+    // vote_average: ''
   }
 
   componentDidMount() {
@@ -21,28 +22,29 @@ class MovieList extends Component {
         return resp.json()
       })
       .then(data => {
-        //console.log({ data })
+        // console.log({ data })
         this.setState({
-          movies: data.results,
-          movieId: data.results.id
+          movies: data.results
+          // movieId: data.results.id
           // title: data.results[0].title
           // vote_average: data.results[0].vote_average
         })
       })
   }
   render() {
+    // console.log(this.props.params.id)
     return (
       <>
+        <Header
+          movies={this.state.movies}
+        />
         <section className="movie-cont">
           {this.state.movies.map((mov, index) => {
-            {
-            }
             return (
               <MovieItem
-                key={index}
-                movie={mov}
                 id={mov.id}
-                rating={mov.vote_average}
+                key={index}
+                movies={mov}
               />
             )
           })}
