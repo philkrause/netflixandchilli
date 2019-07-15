@@ -7,3 +7,4 @@ This was built with _React.js_ as an assignment for the [Suncoast Developer's Gu
 
 Viewable [Here](https://netflixandchilli-phil.netlify.com/) 
 
+Made with this [API](https://www.themoviedb.org/)
