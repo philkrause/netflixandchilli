@@ -11,7 +11,7 @@ class MovieList extends Component {
   }
 
   randomNum = () => {
-    return Math.floor(Math.random() * 10)
+    return Math.floor(Math.random() * 15)
   }
 
   componentDidMount() {

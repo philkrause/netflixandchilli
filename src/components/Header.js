@@ -6,13 +6,11 @@ class Header extends Component {
     return (
       <div className="head-er">
         {console.log(this.props)}
-        <Link to={{ pathname: '/movie/page/:id' }}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${
-              this.props.movies.poster_path
-            }`}
-          />
-        </Link>
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${
+            this.props.movies.poster_path
+          }`}
+        />
         <h1> NetFlix and Chilli</h1>
       </div>
     )
