@@ -6,9 +6,12 @@ class MovieList extends Component {
   api_key = '2c269bdc3efe18bdacd53e11241e0dc7'
 
   state = {
-    movies: []
-    // title: '',
-    // vote_average: ''
+    movies: [],
+    randomMovie: []
+  }
+
+  randomNum = () => {
+    return Math.floor(Math.random() * 10)
   }
 
   componentDidMount() {
@@ -22,36 +25,20 @@ class MovieList extends Component {
         return resp.json()
       })
       .then(data => {
-        // console.log({ data })
         this.setState({
-          movies: data.results
-          // movieId: data.results.id
-          // title: data.results[0].title
-          // vote_average: data.results[0].vote_average
+          movies: data.results,
+          randomMovie: data.results[this.randomNum()]
         })
-
       })
   }
 
   render() {
-    // console.log('a', this.props)
     return (
       <>
-        {/* {console.log(this)} */}
-
-        <Header
-          movies={this.state.movies}
-        />
+        <Header movies={this.state.randomMovie} />
         <section className="movie-cont">
-
           {this.state.movies.map((mov, index) => {
-            return (
-              <MovieItem
-                id={mov.id}
-                key={index}
-                movies={mov}
-              />
-            )
+            return <MovieItem id={mov.id} key={index} movies={mov} />
           })}
         </section>
       </>

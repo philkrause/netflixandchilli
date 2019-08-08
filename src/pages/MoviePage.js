@@ -9,12 +9,9 @@ class Movie extends Component {
 
   componentDidMount() {
     this.setState({ moviePage: this.props.location.state.allMovies })
-
   }
 
-
   render() {
-    console.log(this.props)
     const movieTitle = {
       color: 'white',
       fontSize: '2rem',
@@ -22,11 +19,12 @@ class Movie extends Component {
     }
     return (
       <>
-        <div className='movieBox' >
+        <div className="movieBox">
           {/* <h1 style={movieTitle}>{this.state.moviePage.title}</h1> */}
           <img
-            src={`https://image.tmdb.org/t/p/w500/${this.state.moviePage.poster_path}`}
-
+            src={`https://image.tmdb.org/t/p/w500/${
+              this.state.moviePage.poster_path
+            }`}
           />
           <h1 style={movieTitle}>{this.state.moviePage.overview}</h1>
         </div>
